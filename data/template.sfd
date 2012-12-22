@@ -1,0 +1,56 @@
+SplineFontDB: 3.0
+FontName: umplus
+FullName: UM+
+FamilyName: UM+
+Weight: Regular
+Copyright: 
+Version: 001.000
+ItalicAngle: 0
+UnderlinePosition: -128
+UnderlineWidth: 41
+Ascent: 704
+Descent: 128
+LayerCount: 2
+Layer: 0 0 "Back"  1
+Layer: 1 0 "Fore"  0
+XUID: [1021 200 1155150061 15701274]
+FSType: 8
+OS2Version: 1
+OS2_WeightWidthSlopeOnly: 0
+OS2_UseTypoMetrics: 1
+CreationTime: 1342410354
+ModificationTime: 1342410457
+PfmFamily: 49
+TTFWeight: 500
+TTFWidth: 5
+LineGap: 75
+VLineGap: 0
+Panose: 2 0 6 9 0 0 0 0 0 0
+OS2TypoAscent: 0
+OS2TypoAOffset: 1
+OS2TypoDescent: 0
+OS2TypoDOffset: 1
+OS2TypoLinegap: 75
+OS2WinAscent: 0
+OS2WinAOffset: 1
+OS2WinDescent: 0
+OS2WinDOffset: 1
+HheadAscent: 0
+HheadAOffset: 1
+HheadDescent: 0
+HheadDOffset: 1
+OS2Vendor: 'PfEd'
+MarkAttachClasses: 1
+DEI: 91125
+LangName: 1033 
+Encoding: UnicodeBmp
+UnicodeInterp: none
+NameList: Adobe Glyph List
+DisplaySize: -24
+AntiAlias: 0
+FitToEm: 1
+WinInfo: 0 32 8
+OnlyBitmaps: 1
+BeginChars: 65536 0
+EndChars
+EndSplineFont

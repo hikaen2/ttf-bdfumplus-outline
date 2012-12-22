@@ -1,0 +1,20 @@
+#!/usr/bin/fontforge -script
+
+Open("data/template.sfd")
+
+# for width, space
+Import("compiled/bdfUMplus.bdf", 1)
+SelectAll()
+ClearBackground()
+SelectNone() 
+SetFontNames("bdfUMplus", "BDF UM+ OUTLINE", "BDF UM+ OUTLINE", "Regular", " ", $1)
+
+# import svgs
+Import("compiled/svg/u*.svg", 0)
+
+Save("compiled/bdfUMplus-outline.sfd")
+Generate("compiled/bdfUMplus-outline.ttf")
+
+Close()
+Quit()
+
