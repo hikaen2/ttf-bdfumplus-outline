@@ -1,4 +1,5 @@
-# Makefile for BDF UM+ OUTLINE
+# Makefile
+# This file is part of BDF UM+ OUTLINE.
 
 all: map bdf ttf
 
@@ -32,3 +33,6 @@ clean:
 	-rm compiled/mplus_j12r-utf16.bdf
 	-rm compiled/bdfUMplus_x4.bdf
 	-rm -rf compiled/svg/
+
+distclean:
+	-rm -rf compiled/*

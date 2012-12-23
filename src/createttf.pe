@@ -1,4 +1,8 @@
 #!/usr/bin/fontforge -script
+#
+# createttf.pe
+# This file is part of BDF UM+ OUTLINE.
+#
 
 Open("data/template.sfd")
 
@@ -7,14 +11,15 @@ Import("compiled/bdfUMplus.bdf", 1)
 SelectAll()
 ClearBackground()
 SelectNone() 
+
 SetFontNames("bdfUMplus", "BDF UM+ OUTLINE", "BDF UM+ OUTLINE", "Regular", " ", $1)
 
 # import svgs
 Import("compiled/svg/u*.svg", 0)
 
+# save
 Save("compiled/bdfUMplus-outline.sfd")
 Generate("compiled/bdfUMplus-outline.ttf")
 
 Close()
 Quit()
-
