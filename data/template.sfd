@@ -1,9 +1,9 @@
 SplineFontDB: 3.0
-FontName: umplus
-FullName: UM+
-FamilyName: UM+
+FontName: bdfUMplus
+FullName: BDF UM+ OUTLINE
+FamilyName: BDF UM+ OUTLINE
 Weight: Regular
-Copyright: 
+Copyright:  
 Version: 001.000
 ItalicAngle: 0
 UnderlinePosition: -128
@@ -46,11 +46,9 @@ LangName: 1033
 Encoding: UnicodeBmp
 UnicodeInterp: none
 NameList: Adobe Glyph List
-DisplaySize: -24
+DisplaySize: 13
 AntiAlias: 0
 FitToEm: 1
-WinInfo: 0 32 8
-OnlyBitmaps: 1
 BeginChars: 65536 0
 EndChars
 EndSplineFont
