@@ -1,5 +1,8 @@
 #!/usr/bin/ruby
-
+#
+# createmap.rb
+# This file is part of BDF UM+ OUTLINE.
+#
 
 require 'rubygems'
 require 'sqlite3'
@@ -7,14 +10,14 @@ require 'tempfile'
 
 
 if ARGV.length != 2
-  puts 'Usaga: createmap 90msp-RKSJ-H UniJIS-UTF32-H'
+  puts 'Usaga: createmap.rb 90msp-RKSJ-H UniJIS-UTF32-H'
   exit 1
 end
 
 
 def parse_cmap(cmap)
   cmap.scan(/begincidchar.*?endcidchar/m).join.scan(/^\s*<([0-9A-Fa-f]+)>\s+(\d+)\s*$/).map { |s| [s[0].hex, s[1].to_i] } +
-  cmap.scan(/begincidrange.*?endcidrange/m).join.scan(/^\s*<([0-9A-Fa-f]+)>\s+<([0-9A-Fa-f]+)>\s+(\d+)\s*$/).inject([]) { |sum, s|
+    cmap.scan(/begincidrange.*?endcidrange/m).join.scan(/^\s*<([0-9A-Fa-f]+)>\s+<([0-9A-Fa-f]+)>\s+(\d+)\s*$/).inject([]) { |sum, s|
     sum + ((s[0].hex)..(s[1].hex)).zip((s[2].to_i)..(s[2].to_i + s[1].hex - s[0].hex))
   }
 end
@@ -27,9 +30,9 @@ def sjis_to_jis(sjis)
   
   hi -= (hi<=0x9f) ? 0x71 : 0xb1
   hi = hi * 2 + 1
-  lo -= (lo>0x7f) ? 1 : 0
-  hi += (lo>=0x9e) ? 1 : 0
-  lo -= (lo>=0x9e) ? 0x7d : 0x1f
+  lo -= (lo > 0x7f) ? 1 : 0
+  hi += (lo >= 0x9e) ? 1 : 0
+  lo -= (lo >= 0x9e) ? 0x7d : 0x1f
   return hi << 8 | lo
 end
 
@@ -60,4 +63,3 @@ end
 rows = db.execute('SELECT * FROM utf32_to_rksj WHERE rksj > 128 ORDER BY utf32')
 
 print rows.map { |utf32, rksj| [utf32, sjis_to_jis(rksj)] }.map {|utf32, jis| sprintf("%d\t%d", utf32, jis) }.join("\n")
-
