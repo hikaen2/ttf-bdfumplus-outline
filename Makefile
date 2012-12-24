@@ -26,6 +26,7 @@ bdf:
 	rm compiled/mplus_j12r-utf16.bdf
 	sed -i "s/SWIDTH \(443\|480\) 0/SWIDTH 384 0/" compiled/bdfUMplus.bdf
 	sed -i "s/SWIDTH \(886\|960\) 0/SWIDTH 768 0/" compiled/bdfUMplus.bdf
+	sed -i "s/STARTCHAR .*/STARTCHAR (for_rename)/" compiled/bdfUMplus.bdf
 
 map:
 	ruby src/createmap.rb data/90msp-RKSJ-H data/UniJIS-UTF32-H > compiled/unicode-jis.map
