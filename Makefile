@@ -1,5 +1,7 @@
+#
 # Makefile
 # This file is part of BDF UM+ OUTLINE.
+#
 
 all: map bdf ttf
 
