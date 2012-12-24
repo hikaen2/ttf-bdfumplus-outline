@@ -5,21 +5,11 @@
 #
 
 Open("data/template.sfd")
-
-# for width, space
-Import("compiled/bdfUMplus.bdf", 1)
-SelectAll()
-ClearBackground()
-SelectNone() 
-
+Import("compiled/bdfUMplus.bdf")
+Import("compiled/svg/u*.svg")
 SetFontNames("bdfUMplus", "BDF UM+ OUTLINE", "BDF UM+ OUTLINE", "Regular", " ", $1)
-
-# import svgs
-Import("compiled/svg/u*.svg", 0)
-
-# save
 Save("compiled/bdfUMplus-outline.sfd")
-Generate("compiled/bdfUMplus-outline.ttf")
+Generate("compiled/bdfUMplus-outline.ttf", "ttf")
 
 Close()
 Quit()

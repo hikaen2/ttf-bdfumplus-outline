@@ -4,14 +4,15 @@
 all: map bdf ttf
 
 ttf:
-	bdfresize -b 1 -f 4 < compiled/bdfUMplus.bdf > compiled/bdfUMplus_x4.bdf
+	bdfresize -b 1 -f 4 < compiled/bdfUMplus.bdf > compiled/bdfUMplus-x4.bdf
+	rm -rf compiled/svg
 	mkdir compiled/svg
-	ruby src/bdf2pbm.rb compiled/bdfUMplus_x4.bdf compiled/svg
-	rm compiled/bdfUMplus_x4.bdf
+	ruby src/bdf2pbm.rb compiled/bdfUMplus-x4.bdf compiled/svg
+	rm compiled/bdfUMplus-x4.bdf
 	potrace -s -z white -a -1 compiled/svg/*.pbm
 	rm compiled/svg/*.pbm
 	fontforge -script src/createttf.pe `date '+%Y.%m.%d'`
-	rm -rf compiled/svg/
+	rm -rf compiled/svg
 
 bdf:
 	patch -ocompiled/mplus_f12r-jisx0201.bdf data/mplus_f12r.bdf data/mplus_f12r-jisx0201.diff
@@ -31,8 +32,8 @@ clean:
 	-rm compiled/mplus_f12r-jisx0201.bdf
 	-rm compiled/mplus_f12r-jisx0201-utf16.bdf
 	-rm compiled/mplus_j12r-utf16.bdf
-	-rm compiled/bdfUMplus_x4.bdf
-	-rm -rf compiled/svg/
+	-rm compiled/bdfUMplus-x4.bdf
+	-rm -rf compiled/svg
 
 distclean:
 	-rm -rf compiled/*
