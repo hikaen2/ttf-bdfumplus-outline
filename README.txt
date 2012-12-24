@@ -37,7 +37,7 @@ BDF UM+ OUTLINE - ビットマップTTFフォント
   - data/mplus_j12r.bdf
     M+ BITMAP FONTS
     12 ドット和文フォント 
-    オリジナルファイル：mplus_bitmap_fonts-2.2.4.tar.gz
+    オリジナルファイル：http://sourceforge.jp/cvs/view/mplus-fonts/mplus_bitmap_fonts/fonts_j/mplus_j12r.bdf?revision=1.183
   - data/90msp-RKSJ-H
     Adobe CMap Resources
     オリジナルファイル：cmapresources_japan1-6.tar.z
