@@ -55,11 +55,12 @@ db.transaction do
   utf32_to_cid.each do |utf32, cid|
     db.execute('INSERT INTO utf32_to_cid VALUES (?, ?)', utf32, cid)
   end
+  db.execute("DELETE FROM rksj_to_cid WHERE rksj = 126") # 0x7e is not tilde!
   db.execute('INSERT INTO cid_to_rksj SELECT cid, MIN(rksj) FROM rksj_to_cid GROUP BY cid')
   db.execute('INSERT INTO utf32_to_rksj SELECT utf32_to_cid.utf32, cid_to_rksj.rksj FROM utf32_to_cid JOIN cid_to_rksj ON utf32_to_cid.cid = cid_to_rksj.cid')
 end
 
 
-rows = db.execute('SELECT * FROM utf32_to_rksj WHERE rksj > 128 ORDER BY utf32')
+rows = db.execute('SELECT * FROM utf32_to_rksj ORDER BY utf32')
 
 print rows.map { |utf32, rksj| [utf32, sjis_to_jis(rksj)] }.map {|utf32, jis| sprintf("0x%04X\t0x%04X", utf32, jis) }.join("\n")
