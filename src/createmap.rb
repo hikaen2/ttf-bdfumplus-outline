@@ -62,4 +62,4 @@ end
 
 rows = db.execute('SELECT * FROM utf32_to_rksj WHERE rksj > 128 ORDER BY utf32')
 
-print rows.map { |utf32, rksj| [utf32, sjis_to_jis(rksj)] }.map {|utf32, jis| sprintf("%d\t%d", utf32, jis) }.join("\n")
+print rows.map { |utf32, rksj| [utf32, sjis_to_jis(rksj)] }.map {|utf32, jis| sprintf("0x%04X\t0x%04X", utf32, jis) }.join("\n")
