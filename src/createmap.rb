@@ -57,7 +57,7 @@ db.transaction do
   end
 
   db.execute('UPDATE rksj_to_cid SET cid = 99 WHERE rksj = 124 AND cid = 93')  # 0x7c is VERTICAL LINE(CID 99), not BROKEN BAR(CID 93).
-  db.execute('DELETE FROM rksj_to_cid WHERE rksj = 126 AND cid = 95')  # 0x7e is OVERLINE, not TILDE(CID 95)!
+  db.execute('UPDATE rksj_to_cid SET cid = 226 WHERE rksj = 126 AND cid = 95')  # 0x7e is OVERLINE(CID 226?), not TILDE(CID 95).
 
   db.execute('INSERT INTO cid_to_rksj SELECT cid, MIN(rksj) FROM rksj_to_cid GROUP BY cid')
   db.execute('INSERT INTO utf32_to_rksj SELECT utf32_to_cid.utf32, cid_to_rksj.rksj FROM utf32_to_cid JOIN cid_to_rksj ON utf32_to_cid.cid = cid_to_rksj.cid')
