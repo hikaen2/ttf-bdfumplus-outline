@@ -56,8 +56,12 @@ db.transaction do
     db.execute('INSERT INTO utf32_to_cid VALUES (?, ?)', utf32, cid)
   end
 
-  db.execute('UPDATE rksj_to_cid SET cid = 99 WHERE rksj = 124 AND cid = 93')  # 0x7c is VERTICAL LINE(CID 99), not BROKEN BAR(CID 93).
-  db.execute('UPDATE rksj_to_cid SET cid = 226 WHERE rksj = 126 AND cid = 95')  # 0x7e is OVERLINE(CID 226?), not TILDE(CID 95).
+  db.execute('UPDATE rksj_to_cid SET cid =  99 WHERE rksj =   124 AND cid =  93')  # 0x7c is VERTICAL LINE(CID 99), not BROKEN BAR(CID 93).
+  db.execute('UPDATE rksj_to_cid SET cid = 226 WHERE rksj =   126 AND cid =  95')  # 0x7e is OVERLINE(CID 226?), not TILDE(CID 95).
+  db.execute('UPDATE rksj_to_cid SET cid =  98 WHERE rksj = 33125 AND cid = 670')  # 0x8165 to U+2018(LEFT SINGLE QUOTATION MARK)
+  db.execute('UPDATE rksj_to_cid SET cid =  96 WHERE rksj = 33126 AND cid = 671')  # 0x8166 to U+2019(RIGHT SINGLE QUOTATION MARK)
+  db.execute('UPDATE rksj_to_cid SET cid = 108 WHERE rksj = 33127 AND cid = 672')  # 0x8167 to U+201C(LEFT DOUBLE QUOTATION MARK)
+  db.execute('UPDATE rksj_to_cid SET cid = 122 WHERE rksj = 33128 AND cid = 673')  # 0x8168 to U+201D(RIGHT DOUBLE QUOTATION MARK)
 
   db.execute('INSERT INTO cid_to_rksj SELECT cid, MIN(rksj) FROM rksj_to_cid GROUP BY cid')
   db.execute('INSERT INTO utf32_to_rksj SELECT utf32_to_cid.utf32, cid_to_rksj.rksj FROM utf32_to_cid JOIN cid_to_rksj ON utf32_to_cid.cid = cid_to_rksj.cid')
