@@ -40,3 +40,5 @@ clean:
 
 distclean:
 	-rm -rf compiled/*
+
+.PHONY: all ttf bdf map clean distclean
