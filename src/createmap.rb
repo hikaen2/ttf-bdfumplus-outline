@@ -16,10 +16,10 @@ end
 
 
 def parse_cmap(cmap)
-  cmap.scan(/begincidchar.*?endcidchar/m).join.scan(/^\s*<([0-9A-Fa-f]+)>\s+(\d+)\s*$/).map { |s| [s[0].hex, s[1].to_i] } +
-    cmap.scan(/begincidrange.*?endcidrange/m).join.scan(/^\s*<([0-9A-Fa-f]+)>\s+<([0-9A-Fa-f]+)>\s+(\d+)\s*$/).inject([]) { |sum, s|
+  cmap.scan(/begincidchar.*?endcidchar/m).join.scan(/<([0-9A-Fa-f]+)>[ \t]+(\d+)/).map { |s| [s[0].hex, s[1].to_i] } +
+  cmap.scan(/begincidrange.*?endcidrange/m).join.scan(/<([0-9A-Fa-f]+)>[ \t]+<([0-9A-Fa-f]+)>[ \t]+(\d+)/).inject([]) do |sum, s|
     sum + ((s[0].hex)..(s[1].hex)).zip((s[2].to_i)..(s[2].to_i + s[1].hex - s[0].hex))
-  }
+  end
 end
 
 
@@ -46,7 +46,7 @@ db = SQLite3::Database.new(Tempfile.new('').path)
 db.execute('CREATE TABLE rksj_to_cid (rksj INTEGER PRIMARY KEY, cid INTEGER)')
 db.execute('CREATE TABLE utf32_to_cid (utf32 INTEGER PRIMARY KEY, cid INTEGER)')
 db.execute('CREATE TABLE cid_to_rksj (cid INTEGER PRIMARY KEY, rksj INTEGER)')
-db.execute('CREATE TABLE utf32_to_rksj  (utf32 INTEGER PRIMARY KEY, rksj INTEGER)')
+db.execute('CREATE TABLE utf32_to_rksj (utf32 INTEGER PRIMARY KEY, rksj INTEGER)')
 
 db.transaction do
   rksj_to_cid.each do |rksj, cid|
@@ -64,10 +64,10 @@ db.transaction do
   db.execute('UPDATE rksj_to_cid SET cid = 122 WHERE rksj = 33128 AND cid = 673')  # 0x8168 to U+201D(RIGHT DOUBLE QUOTATION MARK)
 
   db.execute('INSERT INTO cid_to_rksj SELECT cid, MIN(rksj) FROM rksj_to_cid GROUP BY cid')
-  db.execute('INSERT INTO utf32_to_rksj SELECT utf32_to_cid.utf32, cid_to_rksj.rksj FROM utf32_to_cid JOIN cid_to_rksj ON utf32_to_cid.cid = cid_to_rksj.cid')
+  db.execute('INSERT INTO utf32_to_rksj SELECT utf32_to_cid.utf32, cid_to_rksj.rksj FROM utf32_to_cid NATURAL JOIN cid_to_rksj')
 end
 
 
 rows = db.execute('SELECT * FROM utf32_to_rksj ORDER BY utf32')
 
-puts rows.map { |utf32, rksj| [utf32, sjis_to_jis(rksj)] }.map {|utf32, jis| sprintf("0x%04X\t0x%04X", utf32, jis) }.join("\n")
+puts rows.map {|utf32, rksj| sprintf("0x%04X\t0x%04X", utf32, sjis_to_jis(rksj)) }.join("\n")
