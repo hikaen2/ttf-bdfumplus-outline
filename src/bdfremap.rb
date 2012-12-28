@@ -15,7 +15,7 @@ print bdf.match(/^.*ENDPROPERTIES\s*\n/m)
 chars = bdf.scan(/STARTCHAR.+?ENDCHAR\s*\n/m).inject({}) { |sum,s| sum[s.match(/ENCODING\s+(\d+)/)[1].to_i] = s; sum }
 
 out = []
-IO.read(ARGV[1]).scan(/^\s*0x([0-9A-Fa-f]+)\s+0x([0-9A-Fa-f]+)\s*$/) do |s|
+IO.read(ARGV[1]).scan(/0x([0-9A-Fa-f]+)[ \t]+0x([0-9A-Fa-f]+)/) do |s|
   to = s[0].hex
   from = s[1].hex
   out << chars[from].gsub(/ENCODING\s+(\d+)/) { |m| sprintf('ENCODING %d', to) } if chars[from]
