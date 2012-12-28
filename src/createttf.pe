@@ -9,6 +9,7 @@ Import("compiled/bdfUMplus.bdf")
 Import("compiled/svg/u*.svg")
 RenameGlyphs("Adobe Glyph List")
 SetFontNames("bdfUMplus", "BDF UM+ OUTLINE", "BDF UM+ OUTLINE", "Regular", " ", $1)
+ScaleToEm(1024)
 Save("compiled/bdfUMplus-outline.sfd")
 Generate("compiled/bdfUMplus-outline.ttf", "ttf")
 
