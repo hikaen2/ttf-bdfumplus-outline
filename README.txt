@@ -8,8 +8,6 @@ BDF UM+ OUTLINE - ビットマップTTFフォント
     http://mplus-fonts.sourceforge.jp/mplus-bitmap-fonts/index.html
   - Unicode fonts and tools for X11
     http://www.cl.cam.ac.uk/~mgk25/ucs-fonts.html
-  - Adobe CMap Resources
-    http://sourceforge.net/projects/cmap.adobe/
 
 ファイルの説明
   - compiled/bdfUMplus-outline.ttf
@@ -18,8 +16,6 @@ BDF UM+ OUTLINE - ビットマップTTFフォント
     FontForgeのスプラインフォントデータベースファイル
   - compiled/bdfUMplus.bdf
     BDFフォント
-  - compiled/unicode-jis.map
-    変換表
   - data/6x13.bdf
     Unicode versions of the X11 "misc-fixed-*" fonts
     オリジナルファイル：ucs-fonts.tar.gz
@@ -38,17 +34,14 @@ BDF UM+ OUTLINE - ビットマップTTFフォント
     M+ BITMAP FONTS
     12 ドット和文フォント 
     オリジナルファイル：http://sourceforge.jp/cvs/view/mplus-fonts/mplus_bitmap_fonts/fonts_j/mplus_j12r.bdf?revision=1.183
-  - data/90msp-RKSJ-H
-    Adobe CMap Resources
-    オリジナルファイル：cmapresources_japan1-6.tar.z
-  - data/UniJIS-UTF32-H
-    Adobe CMap Resources
-    オリジナルファイル：cmapresources_japan1-6.tar.z
+  - data/CP932.TXT
+    オリジナルファイル：http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP932.TXT
+  - data/JIS0201.TXT
+    オリジナルファイル：http://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/JIS0201.TXT
 
 コンパイルに必要なソフトウェア
   - make
   - Ruby
-  - SQLite3/Ruby Interface
   - FontForge
   - bdfresize
   - Potrace
