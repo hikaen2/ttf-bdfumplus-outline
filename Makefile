@@ -15,6 +15,7 @@ ttf:
 	rm compiled/svg/*.pbm
 	fontforge -script src/createttf.pe `date '+%Y.%m.%d'`
 	rm -rf compiled/svg
+	gzip -f compiled/bdfUMplus-outline.sfd
 
 bdf:
 	patch -ocompiled/mplus_f12r-jisx0201.bdf data/mplus_f12r.bdf data/mplus_f12r-jisx0201.diff
