@@ -18,6 +18,7 @@ ttf:
 	gzip -f compiled/bdfUMplus-outline.sfd
 
 bdf:
+	-mkdir compiled
 	patch -ocompiled/mplus_f12r-jisx0201.bdf data/mplus_f12r.bdf data/mplus_f12r-jisx0201.diff
 	ruby src/bdfremap.rb data/mplus_j12r.bdf data/CP932.TXT > compiled/mplus_j12r-utf16.bdf
 	ruby src/bdfremap.rb compiled/mplus_f12r-jisx0201.bdf data/JIS0201.TXT > compiled/mplus_f12r-jisx0201-utf16.bdf
