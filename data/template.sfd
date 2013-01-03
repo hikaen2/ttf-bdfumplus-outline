@@ -1,5 +1,5 @@
 SplineFontDB: 3.0
-FontName: bdfUMplus
+FontName: BDF-UM+-OUTLINE
 FullName: BDF UM+ OUTLINE
 FamilyName: BDF UM+ OUTLINE
 Weight: Regular
@@ -23,14 +23,14 @@ ModificationTime: 1342410457
 PfmFamily: 49
 TTFWeight: 500
 TTFWidth: 5
-LineGap: 75
+LineGap: 0
 VLineGap: 0
 Panose: 2 0 6 9 0 0 0 0 0 0
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
 OS2TypoDOffset: 1
-OS2TypoLinegap: 75
+OS2TypoLinegap: 0
 OS2WinAscent: 0
 OS2WinAOffset: 1
 OS2WinDescent: 0
