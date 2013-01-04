@@ -25,7 +25,7 @@ TTFWeight: 500
 TTFWidth: 5
 LineGap: 0
 VLineGap: 0
-Panose: 2 0 6 9 0 0 0 0 0 0
+Panose: 2 11 6 9 0 0 0 0 0 0
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
@@ -42,12 +42,11 @@ HheadDOffset: 1
 OS2Vendor: 'PfEd'
 MarkAttachClasses: 1
 DEI: 91125
-LangName: 1033 
 Encoding: UnicodeBmp
 UnicodeInterp: none
 NameList: Adobe Glyph List
-DisplaySize: 13
-AntiAlias: 0
+DisplaySize: -24
+AntiAlias: 1
 FitToEm: 1
 BeginChars: 65536 0
 EndChars
