@@ -11,7 +11,7 @@ ttf:
 	mkdir compiled/svg
 	ruby src/bdf2pbm.rb compiled/bdfUMplus-x4.bdf compiled/svg
 	rm compiled/bdfUMplus-x4.bdf
-	potrace -s -z white -a -1 compiled/svg/*.pbm
+	potrace -s -z black -a -1 compiled/svg/*.pbm
 	rm compiled/svg/*.pbm
 	fontforge -script src/createttf.pe `date '+%Y.%m.%d'`
 	rm -rf compiled/svg
@@ -26,9 +26,9 @@ bdf:
 	rm compiled/mplus_f12r-jisx0201.bdf
 	rm compiled/mplus_f12r-jisx0201-utf16.bdf
 	rm compiled/mplus_j12r-utf16.bdf
-	sed -i "s/SWIDTH \(443\|480\) 0/SWIDTH 384 0/" compiled/bdfUMplus.bdf
-	sed -i "s/SWIDTH \(886\|960\) 0/SWIDTH 768 0/" compiled/bdfUMplus.bdf
-	sed -i "s/STARTCHAR .*/STARTCHAR (for_rename)/" compiled/bdfUMplus.bdf
+	sed -i 's/SWIDTH \(443\|480\) 0/SWIDTH 384 0/' compiled/bdfUMplus.bdf
+	sed -i 's/SWIDTH \(886\|960\) 0/SWIDTH 768 0/' compiled/bdfUMplus.bdf
+	sed -i 's/STARTCHAR .*/STARTCHAR (for_rename)/' compiled/bdfUMplus.bdf
 
 clean:
 	-rm compiled/mplus_f12r-jisx0201.bdf
