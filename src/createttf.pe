@@ -13,7 +13,7 @@ ScaleToEm(1024)
 SelectAll()
 Simplify()
 Save("compiled/bdfUMplus-outline.sfd")
-Generate("compiled/bdfUMplus-outline.ttf", "ttf")
+Generate("compiled/bdfUMplus-outline.ttf", "ttf", 4)
 
 Close()
 Quit()
