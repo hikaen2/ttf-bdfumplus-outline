@@ -12,6 +12,8 @@ SetFontNames("BDF_UM+_OUTLINE", "BDF UM+ OUTLINE", "BDF UM+ OUTLINE", "Regular",
 ScaleToEm(1024)
 SelectAll()
 Simplify()
+CanonicalStart()
+CanonicalContours()
 Save("compiled/bdfUMplus-outline.sfd")
 Generate("compiled/bdfUMplus-outline.ttf", "ttf", 4)
 
