@@ -8,7 +8,7 @@ all: bdf ttf
 ttf:
 	bdfresize -b 1 -f 4 < compiled/bdfUMplus.bdf > compiled/bdfUMplus-x4.bdf
 	-rm -rf compiled/svg
-	mkdir compiled/svg
+	mkdir -p compiled/svg
 	ruby src/bdf2pbm.rb compiled/bdfUMplus-x4.bdf compiled/svg
 	rm compiled/bdfUMplus-x4.bdf
 	potrace -s -z black -a -1 compiled/svg/*.pbm
@@ -18,7 +18,7 @@ ttf:
 	gzip -f compiled/bdfUMplus-outline.sfd
 
 bdf:
-	-mkdir compiled
+	mkdir -p compiled
 	patch -ocompiled/mplus_f12r-jisx0201.bdf data/mplus_f12r.bdf data/mplus_f12r-jisx0201.diff
 	ruby src/bdfremap.rb data/mplus_j12r.bdf data/CP932.TXT > compiled/mplus_j12r-utf16.bdf
 	ruby src/bdfremap.rb compiled/mplus_f12r-jisx0201.bdf data/JIS0201.TXT > compiled/mplus_f12r-jisx0201-utf16.bdf
