@@ -7,18 +7,18 @@
 # http://opensource.org/licenses/mit-license.php
 #
 
-Open("data/template.sfd")
-Import("compiled/bdfUMplus.bdf")
+Open("data/template-bold.sfd")
+Import("compiled/bdfUMplus-bold.bdf")
 Import("compiled/svg/u*.svg")
 RenameGlyphs("Adobe Glyph List")
-SetFontNames("BdfUMplusOutline-Regular", "BDF UM+ Outline", "BDF UM+ Outline", "Regular", " ", $1)
+SetFontNames("BdfUMplusOutline-Bold", "BDF UM+ Outline", "BDF UM+ Outline", "Bold", " ", $1)
 ScaleToEm(1024)
 SelectAll()
 Simplify()
 CanonicalStart()
 CanonicalContours()
-Save("compiled/bdfUMplus-outline.sfd")
-Generate("compiled/bdfUMplus-outline.ttf", "ttf", 4)
+Save("compiled/bdfUMplus-outline-bold.sfd")
+Generate("compiled/bdfUMplus-outline-bold.ttf", "ttf", 4)
 
 Close()
 Quit()
