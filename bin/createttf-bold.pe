@@ -2,14 +2,13 @@
 #
 # createttf.pe
 #
-# Copyright (c) 2015 Suzuki Taro
+# Created by hikaen2 on 2018-06-03
 # Released under the MIT license
-# http://opensource.org/licenses/mit-license.php
 #
 
 Open("data/template-bold.sfd")
-Import("compiled/bdfUMplus-bold.bdf")
-Import("compiled/svg/u*.svg")
+Import("dist/bdfUMplus-bold.bdf")
+Import("dist/svg/u*.svg")
 RenameGlyphs("Adobe Glyph List")
 SetFontNames("BdfUMplusOutline-Bold", "BDF UM+ Outline", "BDF UM+ Outline Bold", "Bold", " ", $1)
 ScaleToEm(1024)
@@ -17,8 +16,8 @@ SelectAll()
 Simplify()
 CanonicalStart()
 CanonicalContours()
-Save("compiled/bdfUMplus-outline-bold.sfd")
-Generate("compiled/bdfUMplus-outline-bold.ttf", "ttf", 4)
+Save("dist/bdfUMplus-outline-bold.sfd")
+Generate("dist/bdfUMplus-outline-bold.ttf", "ttf", 4)
 
 Close()
 Quit()

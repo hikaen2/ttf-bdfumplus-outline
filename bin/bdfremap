@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+#
+# bdfremap.rb
+#
+# Created by hikaen2 on 2012-12-22
+# Licenced under the MIT license
+#
+
+if ARGV.length != 1
+  puts('Usage: bdfremap.rb map < bdf')
+  exit
+end
+
+MAP = IO.read(ARGV[0]).scan(/0x([0-9A-Fa-f]+)[ \t]+0x([0-9A-Fa-f]+)/).map{|from, to| [from.hex, to.hex] }.to_h
+
+bdf = STDIN.read
+chars = bdf.scan(/STARTCHAR.+?ENDCHAR\s*\n/m).map{|s| s.sub(/ENCODING\s+\d+/){|s| 'ENCODING %d' % (MAP[s[/\d+/].to_i] or -1) }}.reject{|s| s.include?('ENCODING -1') }
+print(bdf[/^.*?ENDPROPERTIES\s*\n/m])
+print("CHARS %d\n" % chars.length)
+print(chars.join)
+print("ENDFONT\n")

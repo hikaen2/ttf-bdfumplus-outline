@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+#
+# bdfsort.rb
+#
+# Created by hikaen2 on 2019-10-22
+# Licenced under the MIT license
+#
+
+bdf = STDIN.read
+chars = bdf.scan(/STARTCHAR.+?ENDCHAR\s*\n/m).sort_by{|s| s[/ENCODING\s+(\d+)/, 1].to_i}
+print(bdf[/^.*?ENDPROPERTIES\s*\n/m])
+print("CHARS %d\n" % chars.length)
+print(chars.join)
+print("ENDFONT\n")

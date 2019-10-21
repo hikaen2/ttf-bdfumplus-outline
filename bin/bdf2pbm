@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+#
+# bdf2pbm.rb
+#
+# Created by hikaen2 on 2012-12-22
+# Licenced under the MIT license
+#
+
+if ARGV.length != 2
+  puts('Usaga: bdf2pbm.rb bdffile outputdir')
+  exit 1
+end
+
+IO.read(ARGV[0]).scan(/STARTCHAR.*?ENDCHAR/m) do |s|
+  File.open(File.join(ARGV[1], 'u%04x.pbm' % s[/ENCODING\s+(\d+)/, 1]), 'w') do |f|
+    f << "P4\n%d %d\n%s" % [
+      s[/BBX\s+(\d+)/, 1],
+      s[/BBX\s+\d+\s+(\d+)/, 1],
+      [s[/BITMAP\s*\n(.*)ENDCHAR/m, 1].delete("\n")].pack('H*'),
+    ]
+  end
+end

@@ -2,14 +2,13 @@
 #
 # createttf.pe
 #
-# Copyright (c) 2015 Suzuki Taro
+# Created by hikaen2 on 2012-12-22
 # Released under the MIT license
-# http://opensource.org/licenses/mit-license.php
 #
 
 Open("data/template.sfd")
-Import("compiled/bdfUMplus.bdf")
-Import("compiled/svg/u*.svg")
+Import("dist/bdfUMplus.bdf")
+Import("dist/svg/u*.svg")
 RenameGlyphs("Adobe Glyph List")
 SetFontNames("BdfUMplusOutline-Regular", "BDF UM+ Outline", "BDF UM+ Outline Regular", "Regular", " ", $1)
 ScaleToEm(1024)
@@ -17,8 +16,8 @@ SelectAll()
 Simplify()
 CanonicalStart()
 CanonicalContours()
-Save("compiled/bdfUMplus-outline.sfd")
-Generate("compiled/bdfUMplus-outline.ttf", "ttf", 4)
+Save("dist/bdfUMplus-outline.sfd")
+Generate("dist/bdfUMplus-outline.ttf", "ttf", 4)
 
 Close()
 Quit()
