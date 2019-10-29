@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 #
-# createmap.rb
+# createmap
+# usage: createmap < CP932.TXT > out.txt
 #
 # Created by hikaen2 on 2019-10-22
 # Licenced under the MIT license
@@ -18,6 +19,8 @@ def sjis_to_jis(sjis)
   return hi << 8 | lo
 end
 
-STDIN.read.scan(/0x([0-9A-Fa-f]+)[ \t]+0x([0-9A-Fa-f]+)/).each do |sjis, unicode|
-  puts("0x%04X\t0x%s" % [sjis_to_jis(sjis.hex), unicode])
-end
+a = STDIN.read.scan(/^0x([0-9A-Fa-f]+)\t0x([0-9A-Fa-f]+)\t(.*)$/).map {|sjis, unicode, comment|
+  "0x%04X\t0x%s\t%s\n" % [sjis_to_jis(sjis.hex), unicode, comment]
+}
+a << "0x2474\t0x3094\t#HIRAGANA LETTER VU\n"
+print(a.sort.join)
