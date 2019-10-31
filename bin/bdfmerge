@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 #
-# bdfmerge.rb
+# bdfmerge
 #
 # Copyright (c) 2015 Suzuki Taro
 # Released under the MIT license
