@@ -6,8 +6,8 @@
 # Released under the MIT license
 #
 
-Open("data/template.sfd")
-Import("dist/bdfUMplus.bdf")
+Open("data/template-regular.sfd")
+Import("dist/bdfUMplus-regular.bdf")
 Import("dist/svg/u*.svg")
 RenameGlyphs("Adobe Glyph List")
 SetFontNames("BdfUMplusOutline-Regular", "BDF UM+ Outline", "BDF UM+ Outline Regular", "Regular", " ", $1)
@@ -16,8 +16,8 @@ SelectAll()
 Simplify()
 CanonicalStart()
 CanonicalContours()
-Save("dist/bdfUMplus-outline.sfd")
-Generate("dist/bdfUMplus-outline.ttf", "ttf", 4)
+Save("dist/bdfUMplus-outline-regular.sfd")
+Generate("dist/bdfUMplus-outline-regular.ttf", "ttf", 4)
 
 Close()
 Quit()
