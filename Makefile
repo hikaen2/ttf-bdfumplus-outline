@@ -41,6 +41,10 @@ bdf:
 	sed -i 's/STARTCHAR .*/STARTCHAR (for_rename)/' dist/bdfUMplus-regular.bdf
 	perl bin/mkbold -r -L dist/bdfUMplus-regular.bdf > dist/bdfUMplus-bold.bdf
 
+dump:
+	bin/bdfdump < dist/bdfUMplus-regular.bdf > dist/bdfUMplus-regular.pbm
+	bin/bdfdump < dist/bdfUMplus-bold.bdf    > dist/bdfUMplus-bold.pbm
+
 map:
 	bin/createmap < data/CP932.TXT > data/map.txt
 
@@ -54,4 +58,4 @@ clean:
 distclean:
 	-rm -rf dist/*
 
-.PHONY: all regular bold bdf map clean distclean
+.PHONY: all regular bold bdf dump map clean distclean

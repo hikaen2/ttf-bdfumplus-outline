@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+#
+# bdfdump
+#
+# Created by hikaen2 on 2020-06-27
+# MIT license
+#
+
+class PBM
+  def initialize(w, h)
+    @W = w
+    @H = h
+    @WB = (w + 7) / 8
+    @buf = "\0".encode(Encoding::BINARY) * (@WB * @H)
+  end
+
+  def to_s
+    "P4\n%d %d\n%s" % [@W, @H, @buf]
+  end
+
+  def blt16(x, y, n)
+    i = y * @WB + x / 8
+    n <<= (8 - (x % 8))
+    @buf.setbyte(i + 0, @buf.getbyte(i + 0) | ((n >> 16) & 255))
+    @buf.setbyte(i + 1, @buf.getbyte(i + 1) | ((n >>  8) & 255))
+    @buf.setbyte(i + 2, @buf.getbyte(i + 2) | ((n >>  0) & 255))
+  end
+end
+
+COLS = 256
+ROWS = 256
+W = 12
+H = 13
+
+def main
+  bdf = STDIN.read
+  chars = bdf.scan(/STARTCHAR.*?ENDCHAR/m).map {|char|
+    _, w, h, x, y = char.match(/BBX +(\d+) +(\d+) +(-?\d+) +(-?\d+)/).to_a.map(&:to_i)
+    y = y + 2
+    lines = char[/BITMAP\s*\n(.*)ENDCHAR/m, 1].split
+    h = lines.size
+    [
+      char[/ENCODING\s+(\d+)/, 1].to_i,
+      ([0] * (13 - h - y)) + lines.map {|s| s.ljust(4, '0').hex >> x} + ([0] * y)
+    ]
+  }.to_h
+
+  pbm = PBM.new(COLS * W, ROWS * H)
+
+  ROWS.times do |y|
+    COLS.times do |x|
+      img16 = chars[y * ROWS + x]
+      next if img16.nil?
+      H.times do |l|
+        pbm.blt16(x * W, y * H + l, img16[l])
+      end
+    end
+  end
+  print pbm
+end
+
+main
