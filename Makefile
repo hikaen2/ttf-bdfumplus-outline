@@ -5,6 +5,10 @@
 
 all: bdf regular bold
 
+ondocker:
+	docker build -t ttf-bdfumplus-outline_builder ./docker
+	docker run -u `id -u`:`id -g` -v $(PWD):/app ttf-bdfumplus-outline_builder
+
 regular:
 	bdfresize -b1 -f4 < dist/bdfUMplus-regular.bdf > dist/bdfUMplus-regular-x4.bdf
 	-rm -rf dist/svg
@@ -58,4 +62,4 @@ clean:
 distclean:
 	-rm -rf dist/*
 
-.PHONY: all regular bold bdf dump map clean distclean
+.PHONY: all ondocker regular bold bdf dump map clean distclean
