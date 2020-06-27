@@ -1,0 +1,10 @@
+#
+# build: docker-compose up
+#
+
+version: "3.0"
+services:
+  builder:
+    build: ./docker
+    volumes:
+      - .:/app
