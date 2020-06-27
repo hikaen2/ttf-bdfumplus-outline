@@ -6,23 +6,23 @@
 all: bdf regular bold
 
 regular:
-	bdfresize -b 1 -f 4 < dist/bdfUMplus-regular.bdf > dist/bdfUMplus-regular-x4.bdf
+	bdfresize -b1 -f4 < dist/bdfUMplus-regular.bdf > dist/bdfUMplus-regular-x4.bdf
 	-rm -rf dist/svg
 	mkdir -p dist/svg
 	bin/bdf2pbm dist/bdfUMplus-regular-x4.bdf dist/svg
 	rm dist/bdfUMplus-regular-x4.bdf
-	potrace -s -z black -a -1 dist/svg/*.pbm
+	potrace -s -zwhite -a0 dist/svg/*.pbm
 	rm dist/svg/*.pbm
 	fontforge -script data/createttf-regular.pe `date '+%Y.%m.%d'`
 	rm -rf dist/svg
 
 bold:
-	bdfresize -b 1 -f 4 < dist/bdfUMplus-bold.bdf > dist/bdfUMplus-bold-x4.bdf
+	bdfresize -b1 -f4 < dist/bdfUMplus-bold.bdf > dist/bdfUMplus-bold-x4.bdf
 	-rm -rf dist/svg
 	mkdir -p dist/svg
 	bin/bdf2pbm dist/bdfUMplus-bold-x4.bdf dist/svg
 	rm dist/bdfUMplus-bold-x4.bdf
-	potrace -s -z black -a -1 dist/svg/*.pbm
+	potrace -s -zwhite -a0 dist/svg/*.pbm
 	rm dist/svg/*.pbm
 	fontforge -script data/createttf-bold.pe `date '+%Y.%m.%d'`
 	rm -rf dist/svg
