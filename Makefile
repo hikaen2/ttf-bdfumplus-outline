@@ -45,6 +45,9 @@ bdf:
 	sed -i 's/STARTCHAR .*/STARTCHAR (for_rename)/' dist/bdfUMplus-regular.bdf
 	perl bin/mkbold -r -L dist/bdfUMplus-regular.bdf > dist/bdfUMplus-bold.bdf
 
+zip:
+	cd dist; zip ttf-bdfumplus-outline-`date '+%Y%m%d'`.zip bdfUMplus-outline-regular.ttf bdfUMplus-outline-bold.ttf
+
 dump:
 	bin/bdfdump < dist/bdfUMplus-regular.bdf > dist/bdfUMplus-regular.pbm
 	bin/bdfdump < dist/bdfUMplus-bold.bdf    > dist/bdfUMplus-bold.pbm
@@ -62,4 +65,4 @@ clean:
 distclean:
 	-rm -rf dist/*
 
-.PHONY: all ondocker regular bold bdf dump map clean distclean
+.PHONY: all ondocker regular bold bdf zip dump map clean distclean
