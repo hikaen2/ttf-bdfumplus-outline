@@ -8,8 +8,5 @@ All glyphs: https://user-images.githubusercontent.com/4222502/67959679-786a9900-
 
 This font is based on M+ BITMAP FONT (http://mplus-fonts.osdn.jp/mplus-bitmap-fonts/) and Unicode fonts (http://www.cl.cam.ac.uk/~mgk25/ucs-fonts.html).
 
-## License
-MIT License
-
 ## Download
 https://github.com/hikaen2/ttf-bdfumplus-outline/releases/download/20180613/ttf-bdfumplus-outline-20180613.zip
