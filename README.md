@@ -7,7 +7,8 @@ BDF UM+ Outline is a monospaced TrueType font which contains 6x13 pixel glyphs a
 See all glyphs: https://user-images.githubusercontent.com/4222502/67959679-786a9900-fc3c-11e9-80b1-aa02cf3f1f9f.png
 
 ## Download
-https://github.com/hikaen2/ttf-bdfumplus-outline/releases/download/20200628/ttf-bdfumplus-outline-20200628.zip
+
+https://github.com/hikaen2/ttf-bdfumplus-outline/releases/download/20251021/ttf-bdfumplus-outline-20251021.zip
 
 ## Build
 
