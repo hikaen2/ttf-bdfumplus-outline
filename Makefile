@@ -40,8 +40,8 @@ bdf:
 	rm dist/mplus_f12r-jisx0201.bdf
 	rm dist/mplus_f12r-jisx0201-unicode.bdf
 	rm dist/mplus_j12r-unicode.bdf
-	sed -i 's/SWIDTH \(443\|480\) 0/SWIDTH 384 0/' dist/bdfUMplus-regular.bdf
-	sed -i 's/SWIDTH \(886\|960\) 0/SWIDTH 768 0/' dist/bdfUMplus-regular.bdf
+	sed -i 's/SWIDTH \(443\|480\) 0/SWIDTH 600 0/' dist/bdfUMplus-regular.bdf
+	sed -i 's/SWIDTH \(886\|960\) 0/SWIDTH 1200 0/' dist/bdfUMplus-regular.bdf
 	sed -i 's/STARTCHAR .*/STARTCHAR (for_rename)/' dist/bdfUMplus-regular.bdf
 	perl bin/mkbold -r -L dist/bdfUMplus-regular.bdf > dist/bdfUMplus-bold.bdf
 

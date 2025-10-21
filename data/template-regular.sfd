@@ -6,10 +6,10 @@ Weight: Regular
 Copyright:  
 Version: 001.000
 ItalicAngle: 0
-UnderlinePosition: -64
-UnderlineWidth: 64
-Ascent: 704
-Descent: 128
+UnderlinePosition: -150
+UnderlineWidth: 100
+Ascent: 1100
+Descent: 200
 LayerCount: 2
 Layer: 0 0 "Back"  1
 Layer: 1 0 "Fore"  0
