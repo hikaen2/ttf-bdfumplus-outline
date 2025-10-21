@@ -1,6 +1,10 @@
-# M+ BITMAP FONTS
+# BDF UM+ Outline
 
-- https://mplus-fonts.osdn.jp/mplus-bitmap-fonts/
+BDF UM+ Outline is a composite font that combines M+ BITMAP FONTS and ucs-fonts.
+The license conforms to the M+ BITMAP FONTS license.
+
+- bdfUMplus-outline-regular.ttf
+- bdfUMplus-outline-bold.ttf
 
 ```
 LICENSE
@@ -10,12 +14,33 @@ THESE FONTS ARE PROVIDED "AS IS" WITHOUT WARRANTY.
 ```
 
 
-# ucs-fonts
+## M+ BITMAP FONTS
+
+- https://mplus-fonts.osdn.jp/mplus-bitmap-fonts/
+- mplus_f12r.bdf
+- mplus_f12r-jisx0201.diff
+- mplus_j12r.bdf
+
+```
+LICENSE
+These fonts are free software.
+Unlimited permission is granted to use, copy, and distribute it, with or without modification, either commercially and noncommercially.
+THESE FONTS ARE PROVIDED "AS IS" WITHOUT WARRANTY.
+```
+
+
+## ucs-fonts
 
 - https://www.cl.cam.ac.uk/~mgk25/ucs-fonts.html
+- 6x13.bdf
+- 12x13ja.bdf
+
+```
+COPYRIGHT "Public domain font.  Share and enjoy."
+```
 
 
-# CP932.TXT, JIS0201.TXT
+## CP932.TXT, JIS0201.TXT
 
 - http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP932.TXT
 - http://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/JIS0201.TXT
@@ -70,7 +95,7 @@ written authorization of the copyright holder.
 ```
 
 
-# mkbold
+## mkbold
 
 - https://hp.vector.co.jp/authors/VA013391/tools/mkbold
 
@@ -81,7 +106,7 @@ written authorization of the copyright holder.
 ```
 
 
-# others
+## Scripts
 
 - bdf2pbm, bdfdump, bdfmerge, bdfremap, bdfsort, bdfuniq, createmap
 

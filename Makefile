@@ -17,7 +17,7 @@ regular:
 	rm dist/bdfUMplus-regular-x4.bdf
 	potrace -s -zwhite -a0 dist/svg/*.pbm
 	rm dist/svg/*.pbm
-	fontforge -script data/createttf-regular.pe `date '+%Y.%m.%d'`
+	fontforge -script bin/createttf-regular.pe `date '+%Y.%m.%d'`
 	rm -rf dist/svg
 
 bold:
@@ -28,7 +28,7 @@ bold:
 	rm dist/bdfUMplus-bold-x4.bdf
 	potrace -s -zwhite -a0 dist/svg/*.pbm
 	rm dist/svg/*.pbm
-	fontforge -script data/createttf-bold.pe `date '+%Y.%m.%d'`
+	fontforge -script bin/createttf-bold.pe `date '+%Y.%m.%d'`
 	rm -rf dist/svg
 
 bdf:

@@ -8,3 +8,12 @@ See all glyphs: https://user-images.githubusercontent.com/4222502/67959679-786a9
 
 ## Download
 https://github.com/hikaen2/ttf-bdfumplus-outline/releases/download/20200628/ttf-bdfumplus-outline-20200628.zip
+
+## Build
+
+On Debian/Ubuntu:
+
+```sh
+sudo apt install ruby fontforge-nox potrace bdfresize patch make
+make
+```

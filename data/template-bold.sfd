@@ -1,7 +1,7 @@
 SplineFontDB: 3.0
-FontName: BDF_UM+_OUTLINE
-FullName: BDF UM+ OUTLINE
-FamilyName: BDF UM+ OUTLINE
+FontName: BdfUMplusOutline-Bold
+FullName: BDF UM+ Outline Bold
+FamilyName: BDF UM+ Outline
 Weight: Bold
 Copyright:  
 Version: 001.000
@@ -25,7 +25,7 @@ TTFWeight: 700
 TTFWidth: 5
 LineGap: 0
 VLineGap: 0
-Panose: 2 11 6 9 0 0 0 0 0 0
+Panose: 2 11 6 0 0 0 0 0 0 0
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
